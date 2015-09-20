@@ -13,8 +13,8 @@ public final class PersonsTable {
     @NonNull
     public static final String TABLE_NAME = "persons";
 
-//    @NonNull
-//    public static final String COLUMN_ID = "_id";
+    @NonNull
+    public static final String COLUMN_ID = "_id";
 
     @NonNull
     public static final String COLUMN_UUID = "uuid";
@@ -25,8 +25,8 @@ public final class PersonsTable {
     @NonNull
     public static String getCreateTableQuery() {
         return "CREATE TABLE " + TABLE_NAME + "("
-//                + COLUMN_ID + " INTEGER NOT NULL PRIMARY KEY, "
-                + COLUMN_UUID + " TEXT NOT NULL PRIMARY KEY, "
+                + COLUMN_ID + " INTEGER NOT NULL PRIMARY KEY, "
+                + COLUMN_UUID + " TEXT NOT NULL UNIQUE, "
                 + COLUMN_NAME + " TEXT NOT NULL"
                 + ");";
     }

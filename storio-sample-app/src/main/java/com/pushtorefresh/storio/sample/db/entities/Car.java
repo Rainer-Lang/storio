@@ -7,8 +7,8 @@ import java.util.UUID;
 
 public final class Car {
 
-//    @Nullable
-//    private final Long id;
+    @Nullable
+    private final Long id;
 
     @NonNull
     private final String uuid;
@@ -26,16 +26,16 @@ public final class Car {
 //    }
 
     private Car(Builder builder) {
+        id          = builder.id;
         uuid        = builder.uuid;
-//        id          = builder.id;
         personUuid  = builder.personUuid;
         model       = builder.model;
     }
 
-//    @Nullable
-//    public Long id() {
-//        return id;
-//    }
+    @Nullable
+    public Long id() {
+        return id;
+    }
 
     @Nullable
     public String uuid() {
@@ -62,7 +62,7 @@ public final class Car {
         }
         else {
             return "Car{" +
-//                    "id=" + id +
+                    "id=" + id +
                     "uuid=" + uuid +
 //                    ", personId=" + personId +
                     ", personUuid=" + personUuid +
@@ -76,11 +76,11 @@ public final class Car {
 //////////////////////////////////////////////////////////////////
     public static class Builder {
 
-        @NonNull
-        private /*final*/ String uuid;
+        @Nullable
+        private Long id = null;
 
-//        @Nullable
-//        private Long id = null;
+        @NonNull
+        private String uuid;
 
         private String personUuid = "";
 
@@ -93,10 +93,10 @@ public final class Car {
             this.model = model;
         }
 
-//        public Builder id(@Nullable Long value) {
-//            id = value;
-//            return this;
-//        }
+        public Builder id(@Nullable Long value) {
+            id = value;
+            return this;
+        }
 
         public Builder uuid(@NonNull String value) {
             uuid = value;
@@ -107,11 +107,6 @@ public final class Car {
             personUuid = value;
             return this;
         }
-
-//        public Builder model(@NonNull String value) {
-//            model = value;
-//            return this;
-//        }
 
         public Car build() {
             return new Car(this);

@@ -33,29 +33,24 @@ public final class PersonGetResolver extends GetResolver<Person> {
         // BTW, you don't need a transaction here
         // StorIO will wrap mapFromCursor() into the transaction if needed
 
-//        try {
 //            final long personId = cursor.getLong(cursor.getColumnIndexOrThrow(PersonsTable.COLUMN_ID));
-            final String personUuid = cursor.getString(cursor.getColumnIndexOrThrow(PersonsTable.COLUMN_UUID));
-            final String personName = cursor.getString(cursor.getColumnIndexOrThrow(PersonsTable.COLUMN_NAME));
+        final String personUuid = cursor.getString(cursor.getColumnIndexOrThrow(PersonsTable.COLUMN_UUID));
+        final String personName = cursor.getString(cursor.getColumnIndexOrThrow(PersonsTable.COLUMN_NAME));
 
-            final List<Car> personCars = storIOSQLite
-                    .get()
-                    .listOfObjects(Car.class)
-                    .withQuery(Query.builder()
-                            .table(CarsTable.TABLE_NAME)
+        final List<Car> personCars = storIOSQLite
+                .get()
+                .listOfObjects(Car.class)
+                .withQuery(Query.builder()
+                        .table(CarsTable.TABLE_NAME)
 //                            .where(CarsTable.COLUMN_PERSON_ID + "=?")
 //                            .whereArgs(personId)
-                            .where(CarsTable.COLUMN_PERSON_UUID + "=?")
-                            .whereArgs(personUuid)
-                            .build())
-                    .prepare()
-                    .executeAsBlocking();
+                        .where(CarsTable.COLUMN_PERSON_UUID + "=?")
+                        .whereArgs(personUuid)
+                        .build())
+                .prepare()
+                .executeAsBlocking();
 
-            return new Person.Builder(personName).uuid(personUuid).cars(personCars).build();
-//        } finally {
-//             // Releasing StorIOSQLite reference
-//            storIOSQLiteFromPerformGet.set(null);
-//        }
+        return new Person.Builder(personName).uuid(personUuid).cars(personCars).build();
     }
 
     @NonNull

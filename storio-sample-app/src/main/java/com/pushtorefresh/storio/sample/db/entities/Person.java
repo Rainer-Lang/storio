@@ -3,6 +3,7 @@ package com.pushtorefresh.storio.sample.db.entities;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
@@ -13,8 +14,8 @@ import java.util.UUID;
 // 3 No state, mutability == state, more states -> more bugs!
 public final class Person {
 
-//    @Nullable
-//    private final Long id;
+    @Nullable
+    private final Long id;
 
     @NonNull
     private final String uuid;
@@ -32,16 +33,16 @@ public final class Person {
 //    }
 
     private Person(Builder builder) {
+        id      = builder.id;
         uuid    = builder.uuid;
-//        id    = builder.id;
         name    = builder.name;
         cars    = builder.cars;
     }
 
-//    @Nullable
-//    public Long id() {
-//        return id;
-//    }
+    @Nullable
+    public Long id() {
+        return id;
+    }
 
     @NonNull
     public String uuid() {
@@ -55,7 +56,8 @@ public final class Person {
 
     @NonNull
     public List<Car> cars() {
-        return cars;
+        return Collections.unmodifiableList(cars);
+//        return cars;
     }
 
 //////////////////////////////////////////////////////////////////
@@ -63,17 +65,17 @@ public final class Person {
 //////////////////////////////////////////////////////////////////
     public static class Builder {
 
-        @NonNull
-        private /*final*/ String uuid;
+        @Nullable
+        private Long id = null;
 
-//        @Nullable
-//        private Long id = null;
+        @NonNull
+        private String uuid;
 
         @NonNull
         private String name;
 
         @NonNull
-        private /*final*/ List<Car> cars = Collections.emptyList();
+        private List<Car> cars = Collections.emptyList();
 
         public Builder(@NonNull String name) {
             uuid = UUID.randomUUID().toString();
@@ -81,10 +83,10 @@ public final class Person {
             this.name = name;
         }
 
-//        public Builder id(@Nullable Long value) {
-//            id = value;
-//            return this;
-//        }
+        public Builder id(@Nullable Long value) {
+            id = value;
+            return this;
+        }
 
         public Builder uuid(@NonNull String value) {
             uuid = value;
@@ -97,7 +99,8 @@ public final class Person {
         }
 
         public Builder cars(@NonNull List<Car> value) {
-            cars = value;
+            cars = new ArrayList<>(value);
+//            cars = value;
             return this;
         }
 

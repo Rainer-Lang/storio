@@ -143,16 +143,15 @@ public class PersonCarsFragment extends BaseFragment {
                 .build();
         persons.add(person);
 
-        person = new Person
-                .Builder("person x")
-                .cars(asList(new Car.Builder("car x").build(), new Car.Builder("car y").build(), new Car.Builder("car z").build()))
-                .build();
+//        person = new Person
+//                .Builder("person x")
+//                .cars(asList(new Car.Builder("car x").build(), new Car.Builder("car y").build(), new Car.Builder("car z").build()))
+//                .build();
 
         // huge example
         for (int i=0; i<1000; i++) {
-//            person = new Person(null, "person "+i,
-//                    asList(new Car.Builder("car "+i).build(), new Car.Builder("car "+i).build(), new Car.Builder("car "+i).build())
-//            );
+            person = new Person.Builder("person "+i)
+                    .cars(asList(new Car.Builder("car "+i).build(), new Car.Builder("car "+i).build(), new Car.Builder("car "+i).build())).build();
             persons.add(person);
         }
 

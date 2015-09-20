@@ -17,7 +17,7 @@ public final class CarGetResolver extends DefaultGetResolver<Car> {
 //                cursor.getString(cursor.getColumnIndexOrThrow(CarsTable.COLUMN_MODEL))
 //        );
         return new Car.Builder(cursor.getString(cursor.getColumnIndexOrThrow(CarsTable.COLUMN_MODEL)))
-//                .id(cursor.getLong(cursor.getColumnIndexOrThrow(CarsTable.COLUMN_ID)))
+                .id(cursor.getLong(cursor.getColumnIndexOrThrow(CarsTable.COLUMN_ID)))
                 .uuid(cursor.getString(cursor.getColumnIndexOrThrow(CarsTable.COLUMN_UUID)))
 //                .personId(cursor.getLong(cursor.getColumnIndexOrThrow(CarsTable.COLUMN_PERSON_ID)))
                 .personUuid(cursor.getString(cursor.getColumnIndexOrThrow(CarsTable.COLUMN_PERSON_UUID)))

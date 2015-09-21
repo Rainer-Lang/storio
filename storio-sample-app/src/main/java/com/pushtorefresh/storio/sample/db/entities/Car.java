@@ -88,9 +88,8 @@ public final class Car {
         private String model = "";
 
         public Builder(@NonNull String model) {
-            uuid = UUID.randomUUID().toString();
-
-            this.model = model;
+            uuid        = UUID.randomUUID().toString();
+            this.model  = model;
         }
 
         public Builder id(@Nullable Long value) {

@@ -33,7 +33,7 @@ public final class PersonGetResolver extends GetResolver<Person> {
         // BTW, you don't need a transaction here
         // StorIO will wrap mapFromCursor() into the transaction if needed
 
-//            final long personId = cursor.getLong(cursor.getColumnIndexOrThrow(PersonsTable.COLUMN_ID));
+        final long   personId   = cursor.getLong(cursor.getColumnIndexOrThrow(PersonsTable.COLUMN_ID));
         final String personUuid = cursor.getString(cursor.getColumnIndexOrThrow(PersonsTable.COLUMN_UUID));
         final String personName = cursor.getString(cursor.getColumnIndexOrThrow(PersonsTable.COLUMN_NAME));
 

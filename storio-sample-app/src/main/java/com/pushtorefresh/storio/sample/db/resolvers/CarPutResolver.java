@@ -34,11 +34,11 @@ public final class CarPutResolver extends DefaultPutResolver<Car> {
     protected ContentValues mapToContentValues(@NonNull Car car) {
         final ContentValues contentValues = new ContentValues(3);
 
-        contentValues.put(CarsTable.COLUMN_ID, car.id());
-        contentValues.put(CarsTable.COLUMN_UUID, car.uuid());
+        contentValues.put(CarsTable.COLUMN_ID,          car.id());
+        contentValues.put(CarsTable.COLUMN_UUID,        car.uuid());
 //        contentValues.put(CarsTable.COLUMN_PERSON_ID, car.personId());
         contentValues.put(CarsTable.COLUMN_PERSON_UUID, car.personUuid());
-        contentValues.put(CarsTable.COLUMN_MODEL, car.model());
+        contentValues.put(CarsTable.COLUMN_MODEL,       car.model());
 
         return contentValues;
     }

@@ -57,7 +57,6 @@ public final class Person {
     @NonNull
     public List<Car> cars() {
         return Collections.unmodifiableList(cars);
-//        return cars;
     }
 
 //////////////////////////////////////////////////////////////////
@@ -78,9 +77,8 @@ public final class Person {
         private List<Car> cars = Collections.emptyList();
 
         public Builder(@NonNull String name) {
-            uuid = UUID.randomUUID().toString();
-
-            this.name = name;
+            uuid        = UUID.randomUUID().toString();
+            this.name   = name;
         }
 
         public Builder id(@Nullable Long value) {
@@ -100,7 +98,6 @@ public final class Person {
 
         public Builder cars(@NonNull List<Car> value) {
             cars = new ArrayList<>(value);
-//            cars = value;
             return this;
         }
 

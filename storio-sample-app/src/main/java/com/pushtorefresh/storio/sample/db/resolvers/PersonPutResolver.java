@@ -26,7 +26,7 @@ public final class PersonPutResolver extends PutResolver<Person> {
         try {
             final ContentValues contentValues = new ContentValues(3);
 
-            contentValues.put(PersonsTable.COLUMN_ID, person.id());
+            contentValues.put(PersonsTable.COLUMN_ID,   person.id());
             contentValues.put(PersonsTable.COLUMN_UUID, person.uuid());
             contentValues.put(PersonsTable.COLUMN_NAME, person.name());
 

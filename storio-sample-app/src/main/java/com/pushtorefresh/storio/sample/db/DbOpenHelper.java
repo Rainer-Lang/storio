@@ -21,8 +21,12 @@ public class DbOpenHelper extends SQLiteOpenHelper {
         db.execSQL(TweetsTable.getCreateTableQuery());
         db.execSQL(UsersTable.getCreateTableQuery());
 
+
         db.execSQL(PersonsTable.getCreateTableQuery());
+        db.execSQL(CarsTable.getCreateIndexUuid());
+
         db.execSQL(CarsTable.getCreateTableQuery());
+        db.execSQL(CarsTable.getCreateIndexUuid());
     }
 
     @Override

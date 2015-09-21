@@ -39,6 +39,11 @@ public final class CarsTable {
                 + ");";
     }
 
+    @NonNull
+    public static String getCreateIndexUuid() {
+        return "CREATE INDEX idx_uuid ON " + TABLE_NAME + " (" + COLUMN_UUID + ")";
+    }
+
     public static final InsertQuery INSERT_QUERY_CAR = InsertQuery.builder().table(CarsTable.TABLE_NAME).build();
 
 }

@@ -31,5 +31,10 @@ public final class PersonsTable {
                 + ");";
     }
 
+    @NonNull
+    public static String getCreateIndexUuid() {
+        return "CREATE INDEX idx_uuid ON " + TABLE_NAME + " (" + COLUMN_UUID + ")";
+    }
+
     public static final InsertQuery INSERT_QUERY_PERSON = InsertQuery.builder().table(PersonsTable.TABLE_NAME).build();
 }

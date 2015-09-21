@@ -124,7 +124,6 @@ public class PersonCarsFragment extends BaseFragment {
         unsubscribeOnStop(subscription);
     }
 
-    // TODO add examples of person-cars
     @OnClick(R.id.person_cars_empty_ui_add_person_cars_button)
     void addPersonCars() {
         final List<Person> persons = new ArrayList<>();
@@ -142,11 +141,6 @@ public class PersonCarsFragment extends BaseFragment {
                         new Car.Builder("Austin Healey 3000 BJ8").build()))
                 .build();
         persons.add(person);
-
-//        person = new Person
-//                .Builder("person x")
-//                .cars(asList(new Car.Builder("car x").build(), new Car.Builder("car y").build(), new Car.Builder("car z").build()))
-//                .build();
 
         // huge example
         for (int i=0; i<1000; i++) {
